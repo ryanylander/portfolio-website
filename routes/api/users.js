@@ -70,12 +70,12 @@ router.post(
                 }
             }
 
-            jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 36000 }, 
+            jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 360 }, 
                 (err, token) => {
                     if (err) throw err;
                     res.json({token});
                 }
-            ); //TODO back to 3600
+            );
         } catch(err){
             console.error(err.message);
             res.status(500).send('Server error');
